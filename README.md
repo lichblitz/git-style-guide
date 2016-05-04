@@ -1,11 +1,9 @@
-# Git Style Guide
+# Guía de estilo GIT
 
-This is a Git Style Guide inspired by [*How to Get Your Change Into the Linux
-Kernel*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
-the [git man pages](http://git-scm.com/doc) and various practices popular
-among the community.
+Esta guía de estilo de GIT esta inspirada en [*Como integrar tus cambios en el kernel de Linux*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
+en la [página man](http://git-scm.com/doc) y varias prácticas populares en la comunidad.
 
-Translations are available in the following languages:
+Las traducciones están disponibles en los siguientes idiomas:
 
 * [Chinese (Simplified)](https://github.com/aseaday/git-style-guide)
 * [Chinese (Traditional)](https://github.com/JuanitoFatas/git-style-guide)
@@ -16,27 +14,27 @@ Translations are available in the following languages:
 * [Portuguese](https://github.com/guylhermetabosa/git-style-guide)
 * [Thai](https://github.com/zondezatera/git-style-guide)
 * [Ukrainian](https://github.com/denysdovhan/git-style-guide)
+* [Spanish](https://github.com/alexsimo/git-style-guide)
 
-If you feel like contributing, please do so! Fork the project and open a pull
-request.
+Si tienes pensado contribuir, por favor hazlo! Haz un fork del proyecto y abre una pull request.
 
-# Table of contents
+# Índica de contenidos
 
 1. [Branches](#branches)
 2. [Commits](#commits)
-  1. [Messages](#messages)
-3. [Merging](#merging)
+  1. [Mensajes](#messages)
+3. [Merges](#merging)
 4. [Misc.](#misc)
 
 ## Branches
 
-* Choose *short* and *descriptive* names:
+* Usa nombres *cortos* y *descriptivos*:
 
   ```shell
-  # good
+  # bien
   $ git checkout -b oauth-migration
 
-  # bad - too vague
+  # mal - demasiado impreciso
   $ git checkout -b login_fix
   ```
 
