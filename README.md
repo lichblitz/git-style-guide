@@ -5,28 +5,28 @@ en la [página man](http://git-scm.com/doc) y varias prácticas populares en la 
 
 Las traducciones están disponibles en los siguientes idiomas:
 
-* [Chinese (Simplified)](https://github.com/aseaday/git-style-guide)
-* [Chinese (Traditional)](https://github.com/JuanitoFatas/git-style-guide)
-* [French](https://github.com/pierreroth64/git-style-guide)
-* [Greek](https://github.com/grigoria/git-style-guide)
-* [Japanese](https://github.com/objectx/git-style-guide)
-* [Korean](https://github.com/ikaruce/git-style-guide)
-* [Portuguese](https://github.com/guylhermetabosa/git-style-guide)
-* [Thai](https://github.com/zondezatera/git-style-guide)
-* [Ukrainian](https://github.com/denysdovhan/git-style-guide)
-* [Spanish](https://github.com/alexsimo/git-style-guide)
+* [Chino (Simplificado)](https://github.com/aseaday/git-style-guide)
+* [Chino (Tradicional)](https://github.com/JuanitoFatas/git-style-guide)
+* [Francés](https://github.com/pierreroth64/git-style-guide)
+* [Griego](https://github.com/grigoria/git-style-guide)
+* [Japonés](https://github.com/objectx/git-style-guide)
+* [Koreano](https://github.com/ikaruce/git-style-guide)
+* [Portugues](https://github.com/guylhermetabosa/git-style-guide)
+* [Thailandés](https://github.com/zondezatera/git-style-guide)
+* [Ukrainiano](https://github.com/denysdovhan/git-style-guide)
+* [Español](https://github.com/alexsimo/git-style-guide)
 
 Si tienes pensado contribuir, por favor hazlo! Haz un fork del proyecto y abre una pull request.
 
 # Índica de contenidos
 
-1. [Branches](#branches)
+1. [Ramas](#branches)
 2. [Commits](#commits)
   1. [Mensajes](#messages)
 3. [Merges](#merging)
-4. [Misc.](#misc)
+4. [Miscelánea](#misc)
 
-## Branches
+## Ramas
 
 * Usa nombres *cortos* y *descriptivos*:
 
@@ -38,34 +38,36 @@ Si tienes pensado contribuir, por favor hazlo! Haz un fork del proyecto y abre u
   $ git checkout -b login_fix
   ```
 
-* Identifiers from corresponding tickets in an external service (eg. a GitHub
-  issue) are also good candidates for use in branch names. For example:
+* Los identificadores de tickets de servicios externos (ej. incidencia de GitHub) también son
+  buenos candidatos para usarlos en los nombres de las ramas. Por ejemplo:
 
   ```shell
   # GitHub issue #15
   $ git checkout -b issue-15
   ```
 
-* Use *dashes* to separate words.
+* Usa *guiónes* para separar las palabras.
 
-* When several people are working on the *same* feature, it might be convenient
-  to have *personal* feature branches and a *team-wide* feature branch.
-  Use the following naming convention:
+* Cuando varias personas trabajan sobre la *misma* funcionalidad, puede ser
+  conveniente tener una rama de la funcionalidad *personal* y una *del-equipo*.
+  Usa la siguiente nomenclatura:
 
   ```shell
-  $ git checkout -b feature-a/master # team-wide branch
-  $ git checkout -b feature-a/maria  # Maria's personal branch
-  $ git checkout -b feature-a/nick   # Nick's personal branch
+  $ git checkout -b feature-a/master # rama del equipo
+  $ git checkout -b feature-a/maria  # rama personal de Maria
+  $ git checkout -b feature-a/nick   # rama personal de Nick
   ```
 
-  Merge at will the personal branches to the team-wide branch (see ["Merging"](#merging)).
-  Eventually, the team-wide branch will be merged to "master".
+  Los merges (fusiones) de las ramas personales se harán a la rama 
+  conjunta del equipo (ver ["Merges"](#merging).
+  Posteriormente la rama de la funcionalidad del equipo entero, se 
+  fusionará con "master"
 
-* Delete your branch from the upstream repository after it's merged, unless
-  there is a specific reason not to.
-
-  Tip: Use the following command while being on "master", to list merged
-  branches:
+* Al menos que haya una razón específica, borra la rama, una vez 
+  mergeada en el repositorio remoto.
+  
+  Consejo: Usa el siguiente comando estando en "master", para listar
+  las ramas mergeadas:
 
   ```shell
   $ git branch --merged | grep -v "\*"
