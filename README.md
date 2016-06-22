@@ -75,26 +75,27 @@ Si tienes pensado contribuir, por favor hazlo! Haz un fork del proyecto y abre u
 
 ## Commits
 
-* Each commit should be a single *logical change*. Don't make several
-  *logical changes* in one commit. For example, if a patch fixes a bug and
-  optimizes the performance of a feature, split it into two separate commits.
+* Cada commit debería ser un único *cambio lógico*. No hagas varios *cambios lógicos*
+  en un sólo commit. Por ejemplo, si un _patch_ arregla un bug y optimiza el
+  rendimiento de una funcionalidad, separalo en dos commits separados.
 
-  *Tip: Use `git add -p` to interactively stage specific portions of the
-  modified files.*
+  *Consejo: Usa `git add -p` para añadir al _staging_ partes específicas
+  de los ficheros modificados.*
 
-* Don't split a single *logical change* into several commits. For example,
-  the implementation of a feature and the corresponding tests should be in the
-  same commit.
+* No separes un único *cambio lógico* en varios commits. Por ejemplo,
+  la implementación de una funcionalidad y sus correspondientes tests,
+  deberían estar en el mismo commit.
 
-* Commit *early* and *often*. Small, self-contained commits are easier to
-  understand and revert when something goes wrong.
+* Haz commits *anticipados* y a *menudo*. Los commits pequeños y autosuficientes
+  son fácilmente entendibles y reversibles cuando algo ha ido mal.
 
-* Commits should be ordered *logically*. For example, if *commit X* depends
-  on changes done in *commit Y*, then *commit Y* should come before *commit X*.
+* Los commits deberían ordenarse de forma *lógica*. Por ejemplo, si el *commit X*
+  depende de los cambios hechos en *commit Y*, entonces el *commit Y* debería ir
+  antes del *commit X*
 
-Note: While working alone on a local branch that *has not yet been pushed*, it's
-fine to use commits as temporary snapshots of your work. However, it still
-holds true that you should apply all of the above *before* pushing it.
+Nota: Si trabajas solo en una rama local que *todavía no ha sido subida*, no es
+inconveniente que hagas commits como capturas temporales de tu trabajo. Aún así,
+siguen siendo válido aplicar las prácticas anteriores *antes* de subir la rama. 
 
 ### Messages
 
