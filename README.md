@@ -97,85 +97,87 @@ Nota: Si trabajas solo en una rama local que *todavía no ha sido subida*, no es
 inconveniente que hagas commits como capturas temporales de tu trabajo. Aún así,
 siguen siendo válido aplicar las prácticas anteriores *antes* de subir la rama. 
 
-### Messages
+### Mensajes
 
-* Use the editor, not the terminal, when writing a commit message:
+* Usa el editor, no la terminal, cuando escribas el mensaje del commit
 
   ```shell
-  # good
+  # bien
   $ git commit
 
-  # bad
-  $ git commit -m "Quick fix"
+  # mal
+  $ git commit -m "Arreglo rápido"
   ```
 
-  Committing from the terminal encourages a mindset of having to fit everything
-  in a single line which usually results in non-informative, ambiguous commit
-  messages.
+  Haciendo commits desde la terminal fortalece la costumbre de tener que encajar
+  todo en una sola línea, que normalmente acaba siendo poco informativa, y mensajes
+  de commit ambiguos.
 
-* The summary line (ie. the first line of the message) should be
-  *descriptive* yet *succinct*. Ideally, it should be no longer than
-  *50 characters*. It should be capitalized and written in imperative present
-  tense. It should not end with a period since it is effectively the commit
-  *title*:
+* La línea de resumen (ej. la primera línea del mensaje) debería ser **descriptiva**
+  y **breve**. Preferiblemente con no más de **50 caracteres**. La primera letra 
+  debería ser mayúscula y escrita en imperativo presente. No debería tener punto
+  al final de la frase, ya que es el título del commit.
 
   ```shell
-  # good - imperative present tense, capitalized, fewer than 50 characters
-  Mark huge records as obsolete when clearing hinting faults
+  # bien - tiempo imperativo presente, primera letra mayúscula, menos de 50 caracters
+  Marcar registros grandes como obsoletos al limpiar los errores
 
-  # bad
-  fixed ActiveModel::Errors deprecation messages failing when AR was used outside of Rails.
+  # mal
+  arreglado ActiveModel::Mensajes de error de desuso cuando se usaba el AR.
   ```
 
-* After that should come a blank line followed by a more thorough
-  description. It should be wrapped to *72 characters* and explain *why*
-  the change is needed, *how* it addresses the issue and what *side-effects*
-  it might have.
+* Después del título debería ir una línea en blanco seguida de una descripción
+  más completa. Debería contenerse en **72 caracteres** y explicar *por que*
+  el cambio es necesario, *como* arregla el fallo y que posibles *efectos secundarios*
+  podría tener.
 
-  It should also provide any pointers to related resources (eg. link to the
-  corresponding issue in a bug tracker):
+  También debería proveer enlaces a recursos relacionados (ej. link a la tarea
+  correspondiente en el gestor de incidencias):
 
   ```text
-  Short (50 chars or fewer) summary of changes
+  Título breve (50 caracteres o menos) de los cambios
 
-  More detailed explanatory text, if necessary. Wrap it to
-  72 characters. In some contexts, the first
-  line is treated as the subject of an email and the rest of
-  the text as the body.  The blank line separating the
-  summary from the body is critical (unless you omit the body
-  entirely); tools like rebase can get confused if you run
-  the two together.
+  Texto descriptivo mas completo, si necesario. Encajar la 
+  descripción en 72 caracteres. En algunos casos, la primera
+  línea es considerada el asunto de un email y el resto del
+  texto, el mensaje. El salto de línea que separa el título
+  del cuerpo, es crítica (al menos que el mensaje no tenga 
+  descripción); herramientas como rebase puede funcionar
+  mal si se juntan estas dos líneas.
 
-  Further paragraphs come after blank lines.
+  Siguientes párrafos van después de saltos de línea.
 
-  - Bullet points are okay, too
+  - Se pueden usar listas ordenadas.
 
   - Use a hyphen or an asterisk for the bullet,
     followed by a single space, with blank lines in
     between
+  - Usar guiones o asteriscos para nuevos elementos de
+    la lista, seguidos de un espacio, con salto de línea
+    entre cada elemento
 
-  Source http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+  Fuente http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
   ```
+  
+  Como último detalle, cuando escribas el mensaje del commit, piensa que 
+  necesitarias saber cuando necesites leerlo después de un año.
 
-  Ultimately, when writing a commit message, think about what you would need
-  to know if you run across the commit in a year from now.
-
-* If a *commit A* depends on *commit B*, the dependency should be
-  stated in the message of *commit A*. Use the SHA1 when referring to
+* Si el *commit A* depende del *commit B*, la dependencia debería anotarse
+  en el mensaje del *commit A*. Usa el código SHA1 cuando te refieras a 
   commits.
 
-  Similarly, if *commit A* solves a bug introduced by *commit B*, it should
-  also be stated in the message of *commit A*.
+  De la misma forma, si el *commit A* arregla un fallo introducido por el
+  *commit B*, debería anotarse también en el mensaje del *commit A*.
 
-* If a commit is going to be squashed to another commit use the `--squash` and
-  `--fixup` flags respectively, in order to make the intention clear:
+* Si a un commit se le va a hacer *squash* con otro commit, use los parámetros
+  `--squash` y `--fixup` respectivamente, para reforzar nuestra intención:
 
   ```shell
   $ git commit --squash f387cab2
   ```
 
-  *(Tip: Use the `--autosquash` flag when rebasing. The marked commits will be
-  squashed automatically.)*
+  *(Truco: Usa el parámetro `--autosquash` cuando hagas **rebase**. Los commits marcados
+  será incluidos automáticamente en el squash)*
 
 ## Merging
 
