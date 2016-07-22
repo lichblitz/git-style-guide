@@ -18,7 +18,7 @@ Las traducciones están disponibles en los siguientes idiomas:
 
 Si tienes pensado contribuir, por favor hazlo! Haz un fork del proyecto y abre una pull request.
 
-# Índica de contenidos
+# Índice de contenidos
 
 1. [Ramas](#branches)
 2. [Commits](#commits)
