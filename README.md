@@ -179,46 +179,44 @@ siguen siendo válido aplicar las prácticas anteriores *antes* de subir la rama
   *(Truco: Usa el parámetro `--autosquash` cuando hagas **rebase**. Los commits marcados
   será incluidos automáticamente en el squash)*
 
-## Merging
+## Merges
 
-* **Do not rewrite published history.** The repository's history is valuable in
-  its own right and it is very important to be able to tell *what actually
-  happened*. Altering published history is a common source of problems for
-  anyone working on the project.
+* **No reescribas la historia pública.** La historia del repositorio es muy valiosa
+  por si misma y debería ser capaz de indicar *que ha pasado* en determinados momentos.
+  Alterar la historia del git es una fuente de problemas muy común para todo aquel
+  que trabaje en el proyecto.
 
-* However, there are cases where rewriting history is legitimate. These are
-  when:
+* Aún así, hay casos donde sobreescribir la historia es legítimo. Eso casos son:
+  
+  * Eres la única persona trabajando en esa rama y nadie la está revisando.
+  
+  * Quieres limpiar u ordenar los commits (ej. squash commit) o/y hacer *rebase*
+    a master para fusionarla más tarde.
 
-  * You are the only one working on the branch and it is not being reviewed.
+  Recapitulando, *nunca reescribas la historia de la rama "master"* o ninguna 
+  otra rama especial (ej. usada para producción o servidores de CI)
+  
+* Manten la historia *limpia* y *simple*. *Antes de fusionar tu rama* asegurate:
 
-  * You want to tidy up your branch (eg. squash commits) and/or rebase it onto
-    the "master" in order to merge it later.
-
-  That said, *never rewrite the history of the "master" branch* or any other
-  special branches (ie. used by production or CI servers).
-
-* Keep the history *clean* and *simple*. *Just before you merge* your branch:
-
-    1. Make sure it conforms to the style guide and perform any needed actions
-       if it doesn't (squash/reorder commits, reword messages etc.)
-
-    2. Rebase it onto the branch it's going to be merged to:
-
+    1. Asegurate de que está acorde a la guía de estilo y realiza cualquier 
+      acción necesaria si no lo está (squash / reordenar commits, modificar mensajes, etc.)
+    
+    2. Hacer _rebase_ en la rama en la que será fusionada:
+      
       ```shell
       [my-branch] $ git fetch
       [my-branch] $ git rebase origin/master
-      # then merge
+      # y hacer merge
       ```
+      
+      Esto acaba resultando en una rama que se puede aplicar directamente al
+      final de la rama _"master"_ y produce una historia muy simple.
+      
+      *(Nota: Esta estrategia se adapta mejor a proyectos con ramas que tengan
+      un ciclo de vida corto. De lo contrario sería mejor fusionar la rama 
+      "master" ocasionalmente en vez de hacer _rebase_.)*
 
-      This results in a branch that can be applied directly to the end of the
-      "master" branch and results in a very simple history.
-
-      *(Note: This strategy is better suited for projects with short-running
-      branches. Otherwise it might be better to occassionally merge the
-      "master" branch instead of rebasing onto it.)*
-
-* If your branch includes more than one commit, do not merge with a
-  fast-forward:
+* Si tu rama incluye más de un commit, no la fusiones con un _fast-forward_:
 
   ```shell
   # good - ensures that a merge commit is created
@@ -228,41 +226,42 @@ siguen siendo válido aplicar las prácticas anteriores *antes* de subir la rama
   $ git merge my-branch
   ```
 
-## Misc.
+## Miscelánea
 
-* There are various workflows and each one has its strengths and weaknesses.
-  Whether a workflow fits your case, depends on the team, the project and your
-  development procedures.
+* Hay varios flujos de trabajo y cada uno de ellos tiene sus pros y contras.
+  Que un determinado flujo de trabajo encaje en tu caso, depende de tu equipo,
+  del proyecto y vuestros procedimientos de desarrollo.
 
-  That said, it is important to actually *choose* a workflow and stick with it.
+  Dicho lo anterior, es importante *elegir* un flujo de trabajo y ceñirnos a él.
+  
+* *Sé consistente.* Esto se aplica tanto al flujo de trabajo hasta los mensajes
+  de los commits, nombres de ramas y tags. Tener un estilo consistente en el
+  repositorio hace fácilmente interpretable que está pasando sólamente mirando
+  el log, los mensajes de los commits, etc.
 
-* *Be consistent.* This is related to the workflow but also expands to things
-  like commit messages, branch names and tags. Having a consistent style
-  throughout the repository makes it easy to understand what is going on by
-  looking at the log, a commit message etc.
+* *Testea / prueba siempre antes de subir (push)*. No subas trabajos a medias.
 
-* *Test before you push.* Do not push half-done work.
+* Usa [etiquetas anotadas](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Annotated-Tags)
+  para hacer las releases u otros puntos importantes en la historia. Mejor usar
+  [etiquetas _ligeras_](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Lightweight-Tags)
+  para uso personal, como forma de marcar un commit para futuras referencias.
 
-* Use [annotated tags](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Annotated-Tags)
-  for marking releases or other important points in the history. Prefer
-  [lightweight tags](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Lightweight-Tags)
-  for personal use, such as to bookmark commits for future reference.
-
-* Keep your repositories at a good shape by performing maintenance tasks
-  occasionally:
+* Manten tus repositorios en buena forma, realizando tareas de mantenimiento
+  ocasionalmente:
 
   * [`git-gc(1)`](http://git-scm.com/docs/git-gc)
   * [`git-prune(1)`](http://git-scm.com/docs/git-prune)
   * [`git-fsck(1)`](http://git-scm.com/docs/git-fsck)
 
-# License
+
+# Licencia
 
 ![cc license](http://i.creativecommons.org/l/by/4.0/88x31.png)
 
-This work is licensed under a [Creative Commons Attribution 4.0
+Este trabajo está escrito bajo licencia [Creative Commons Attribution 4.0
 International license](https://creativecommons.org/licenses/by/4.0/).
 
-# Credits
+# Créditos
 
 Agis Anastasopoulos / [@agisanast](https://twitter.com/agisanast) / http://agis.io
-... and [contributors](https://github.com/agis-/git-style-guide/graphs/contributors)!
+... y [contribuidores](https://github.com/agis-/git-style-guide/graphs/contributors)!
